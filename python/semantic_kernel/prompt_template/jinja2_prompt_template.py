@@ -57,7 +57,7 @@ class Jinja2PromptTemplate(PromptTemplateBase):
             self._env = None
             return
         try:
-            self._env = Environment(loader=BaseLoader())
+            self._env = Environment(loader=BaseLoader(), autoescape=True)
         except TemplateError as e:
             logger.error(f"Invalid jinja2 template: {self.prompt_template_config.template}")
             raise Jinja2TemplateSyntaxError(f"Invalid jinja2 template: {self.prompt_template_config.template}") from e
