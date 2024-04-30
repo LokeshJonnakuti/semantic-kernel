@@ -2,7 +2,6 @@
 
 import os
 import time
-from random import randint
 
 import numpy as np
 import pytest
@@ -19,6 +18,7 @@ from semantic_kernel.functions.kernel_arguments import KernelArguments
 from semantic_kernel.kernel import Kernel
 from semantic_kernel.memory.memory_record import MemoryRecord
 from semantic_kernel.prompt_template.prompt_template_config import PromptTemplateConfig
+import secrets
 
 try:
     from semantic_kernel.connectors.memory.azure_cognitive_search.azure_cognitive_search_memory_store import (
@@ -45,7 +45,7 @@ pytestmark = pytest.mark.skipif(
 @pytest.mark.asyncio
 async def create_memory_store():
     # Create an index and populate it with some data
-    collection = f"int-tests-chat-extensions-{randint(1000, 9999)}"
+    collection = f"int-tests-chat-extensions-{secrets.SystemRandom().randint(1000, 9999)}"
     memory_store = AzureCognitiveSearchMemoryStore(vector_size=4)
     await memory_store.create_collection(collection)
     time.sleep(1)
