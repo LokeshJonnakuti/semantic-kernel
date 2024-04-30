@@ -1,7 +1,7 @@
 # Copyright (c) Microsoft. All rights reserved.
 
-import string
 import secrets
+import string
 
 
 def generate_random_ascii_name(length: int = 16) -> str:

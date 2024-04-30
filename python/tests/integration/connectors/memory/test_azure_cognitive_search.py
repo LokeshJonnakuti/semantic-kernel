@@ -1,6 +1,7 @@
 # Copyright (c) Microsoft. All rights reserved.
 
 import asyncio
+import secrets
 import time
 
 import numpy as np
@@ -11,7 +12,6 @@ from semantic_kernel.connectors.memory.azure_cognitive_search.azure_cognitive_se
 )
 from semantic_kernel.exceptions import ServiceResourceNotFoundError
 from semantic_kernel.memory.memory_record import MemoryRecord
-import secrets
 
 try:
     azure_cognitive_search_installed = True
