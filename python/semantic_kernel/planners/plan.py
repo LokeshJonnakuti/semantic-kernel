@@ -164,11 +164,7 @@ class Plan:
                 function_arguments = copy(arguments)
                 self.add_variables_to_state(self._state, function_arguments)
                 logger.info(
-                    "Invoking next step: "
-                    + str(self._steps[self._next_step_index].name)
-                    + " with arguments: "
-                    + str(function_arguments)
-                )
+                    "Invoking next step: %s with arguments: %s", str(self._steps[self._next_step_index].name), str(function_arguments))
                 result = await self.invoke_next_step(kernel, function_arguments)
                 if result:
                     partial_results.append(result)
