@@ -1,6 +1,5 @@
 # Copyright (c) Microsoft. All rights reserved.
 import os
-import random
 import time
 
 import numpy as np
@@ -12,6 +11,7 @@ from semantic_kernel.connectors.memory.mongodb_atlas.mongodb_atlas_memory_store 
     MongoDBAtlasMemoryStore,
 )
 from semantic_kernel.memory.memory_record import MemoryRecord
+import secrets
 
 mongodb_atlas_installed: bool
 try:
@@ -61,7 +61,7 @@ def memory_record_gen():
 
 @pytest.fixture
 def test_collection():
-    return f"AVSTest-{random.randint(0,9999)}"
+    return f"AVSTest-{secrets.SystemRandom().randint(0,9999)}"
 
 
 @pytest_asyncio.fixture
