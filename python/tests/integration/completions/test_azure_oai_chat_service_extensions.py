@@ -1,6 +1,7 @@
 # Copyright (c) Microsoft. All rights reserved.
 
 import os
+import secrets
 import time
 
 import numpy as np
@@ -18,7 +19,6 @@ from semantic_kernel.functions.kernel_arguments import KernelArguments
 from semantic_kernel.kernel import Kernel
 from semantic_kernel.memory.memory_record import MemoryRecord
 from semantic_kernel.prompt_template.prompt_template_config import PromptTemplateConfig
-import secrets
 
 try:
     from semantic_kernel.connectors.memory.azure_cognitive_search.azure_cognitive_search_memory_store import (

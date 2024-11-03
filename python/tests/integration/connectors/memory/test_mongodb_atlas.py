@@ -1,5 +1,6 @@
 # Copyright (c) Microsoft. All rights reserved.
 import os
+import secrets
 import time
 
 import numpy as np
@@ -11,7 +12,6 @@ from semantic_kernel.connectors.memory.mongodb_atlas.mongodb_atlas_memory_store 
     MongoDBAtlasMemoryStore,
 )
 from semantic_kernel.memory.memory_record import MemoryRecord
-import secrets
 
 mongodb_atlas_installed: bool
 try:
