@@ -2,7 +2,6 @@
 
 import asyncio
 import time
-from random import randint
 
 import numpy as np
 import pytest
@@ -12,6 +11,7 @@ from semantic_kernel.connectors.memory.azure_cognitive_search.azure_cognitive_se
 )
 from semantic_kernel.exceptions import ServiceResourceNotFoundError
 from semantic_kernel.memory.memory_record import MemoryRecord
+import secrets
 
 try:
     azure_cognitive_search_installed = True
@@ -34,7 +34,7 @@ async def test_constructor():
 
 @pytest.mark.asyncio
 async def test_collections():
-    collection = f"int-tests-{randint(1000, 9999)}"
+    collection = f"int-tests-{secrets.SystemRandom().randint(1000, 9999)}"
     async with AzureCognitiveSearchMemoryStore(vector_size=4) as memory_store:
         await memory_store.create_collection(collection)
         await asyncio.sleep(1)
@@ -54,7 +54,7 @@ async def test_collections():
 
 @pytest.mark.asyncio
 async def test_upsert():
-    collection = f"int-tests-{randint(1000, 9999)}"
+    collection = f"int-tests-{secrets.SystemRandom().randint(1000, 9999)}"
     async with AzureCognitiveSearchMemoryStore(vector_size=4) as memory_store:
         await memory_store.create_collection(collection)
         time.sleep(1)
@@ -87,7 +87,7 @@ async def test_upsert():
 
 @pytest.mark.asyncio
 async def test_record_not_found():
-    collection = f"int-tests-{randint(1000, 9999)}"
+    collection = f"int-tests-{secrets.SystemRandom().randint(1000, 9999)}"
     async with AzureCognitiveSearchMemoryStore(vector_size=4) as memory_store:
         await memory_store.create_collection(collection)
         time.sleep(1)
@@ -125,7 +125,7 @@ async def test_record_not_found():
 
 @pytest.mark.asyncio
 async def test_search():
-    collection = f"int-tests-{randint(1000, 9999)}"
+    collection = f"int-tests-{secrets.SystemRandom().randint(1000, 9999)}"
     async with AzureCognitiveSearchMemoryStore(vector_size=4) as memory_store:
         await memory_store.create_collection(collection)
         await asyncio.sleep(1)

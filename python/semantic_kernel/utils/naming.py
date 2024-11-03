@@ -1,7 +1,7 @@
 # Copyright (c) Microsoft. All rights reserved.
 
-import random
 import string
+import secrets
 
 
 def generate_random_ascii_name(length: int = 16) -> str:
@@ -16,4 +16,4 @@ def generate_random_ascii_name(length: int = 16) -> str:
         A string of random ASCII characters of the specified length.
     """
     letters = string.ascii_letters
-    return "".join(random.choices(letters, k=length))
+    return "".join(secrets.SystemRandom().choices(letters, k=length))
